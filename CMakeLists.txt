@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.18)
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
@@ -11,7 +11,7 @@ include(vcpkg_prerequisites)
 include(qt_prerequisites)
 include(cfg_hash)
 
-project(${DEX_PROJECT_NAME} LANGUAGES CXX VERSION 0.4.3)
+project(${DEX_PROJECT_NAME} LANGUAGES CXX VERSION 0.5.5)
 message(STATUS "${PROJECT_NAME} is version ${PROJECT_VERSION}")
 
 include(cmake_default_options)
@@ -61,13 +61,13 @@ endif ()
 ##! We fetch our dependencies
 if (APPLE)
     FetchContent_Declare(mm2
-            URL https://github.com/KomodoPlatform/atomicDEX-API/releases/download/beta-2.1.3445/mm2-419f36ef5-Darwin-Release.zip)
+            URL https://github.com/KomodoPlatform/atomicDEX-API/releases/download/beta-2.1.5182/mm2-0fea16d6b-Darwin-Release.zip)
 elseif (UNIX AND NOT APPLE)
     FetchContent_Declare(mm2
-            URL https://github.com/KomodoPlatform/atomicDEX-API/releases/download/beta-2.1.3445/mm2-419f36ef5-Linux-Release.zip)
+            URL https://github.com/KomodoPlatform/atomicDEX-API/releases/download/beta-2.1.5182/mm2-0fea16d6b-Linux-Release.zip)
 else ()
     FetchContent_Declare(mm2
-            URL https://github.com/KomodoPlatform/atomicDEX-API/releases/download/beta-2.1.3445/mm2-419f36ef5-Windows_NT-Release.zip)
+            URL https://github.com/KomodoPlatform/atomicDEX-API/releases/download/beta-2.1.5182/mm2-0fea16d6b-Windows_NT-Release.zip)
 endif ()
 
 #FetchContent_Declare(qmaterial URL https://github.com/KomodoPlatform/Qaterial/archive/last-clang-working-2.zip)
@@ -75,7 +75,7 @@ endif ()
 FetchContent_Declare(
         qmaterial
         GIT_REPOSITORY https://github.com/KomodoPlatform/Qaterial.git
-        GIT_TAG a5ae919a1e33e4a3c63dab4650c825586b7041c9
+        GIT_TAG 53669824261ae07bc0e8c2abb4b55431f65b2055
 )
 
 FetchContent_Declare(jl777-coins
@@ -118,7 +118,7 @@ if (WITH_HOTRELOAD)
     FetchContent_Declare(
             qaterial_hotreload
             GIT_REPOSITORY https://github.com/KomodoPlatform/QaterialHotReload
-            GIT_TAG 7826fa36d66162ac0ef5c69ed370e0a28ede6a46
+            GIT_TAG ecffec6bd01d9a13561689283bc2a6a927957f64
     )
     set(QATERIALHOTRELOAD_ENABLE_HOTRELOAD_APP OFF CACHE BOOL "")
     FetchContent_MakeAvailable(qaterial_hotreload)
